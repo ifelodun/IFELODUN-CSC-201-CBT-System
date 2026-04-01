@@ -1,0 +1,21 @@
+<h2>Admin Dashboard</h2>
+<a href="/add">Add Question</a>
+
+<table border="1">
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>Answer</th>
+<th>Delete</th>
+</tr>
+
+{% for q in questions %}
+<tr>
+<td>{{ loop.index }}</td>
+<td>{{ q.question }}</td>
+<td>{{ q.answer }}</td>
+<td><a href="/delete/{{ q.id }}">Delete</a></td>
+</tr>
+{% endfor %}
+
+</table>
