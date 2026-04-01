@@ -1,0 +1,31 @@
+<h2>Student: {{ student_name }}</h2>
+<p id="timer">Time: 60</p>
+
+<form method="POST" action="/review" id="examForm">
+
+{% for q in questions %}
+<p>{{ q.question }}</p>
+
+<input type="radio" name="{{ q.id }}" value="{{ q.opt1 }}"> {{ q.opt1 }}<br>
+<input type="radio" name="{{ q.id }}" value="{{ q.opt2 }}"> {{ q.opt2 }}<br>
+<input type="radio" name="{{ q.id }}" value="{{ q.opt3 }}"> {{ q.opt3 }}<br>
+<input type="radio" name="{{ q.id }}" value="{{ q.opt4 }}"> {{ q.opt4 }}<br>
+
+<hr>
+{% endfor %}
+
+<button>Submit</button>
+</form>
+
+<script>
+let time = 60;
+
+setInterval(()=>{
+time--;
+document.getElementById("timer").innerHTML="Time: "+time;
+
+if(time<=0){
+document.getElementById("examForm").submit();
+}
+},1000);
+</script>
