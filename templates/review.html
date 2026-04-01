@@ -1,0 +1,9 @@
+<h2>Review</h2>
+
+{% for q in questions %}
+<p>{{ q.question }} - {{ answers[q.id] }}</p>
+{% endfor %}
+
+<form method="POST" action="/submit">
+<button>Submit Final</button>
+</form>
